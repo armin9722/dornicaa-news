@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Auth\AdminEditRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -45,7 +46,7 @@ class AdminPanelController extends Controller
     /**
      * Update user profile.
      */
-    public function update(AdminEditUserRequest $request, User $user)
+    public function update(AdminEditRequest $request, User $user)
     {
         $request->validate([
             'first_name' => 'required|string|max:255',

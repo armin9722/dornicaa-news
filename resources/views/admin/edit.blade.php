@@ -20,17 +20,17 @@
 
             <div class="mb-3">
                 <label class="form-label">نام</label>
-                <input type="text" class="form-control" name="first_name" value="{{ old('first_name', $user->first_name) }}" required>
+                <input type="text" class="form-control" name="first_name" value="{{ old('first_name', $user->first_name) }}" >
             </div>
 
             <div class="mb-3">
                 <label class="form-label">نام خانوادگی</label>
-                <input type="text" class="form-control" name="last_name" value="{{ old('last_name', $user->last_name) }}" required>
+                <input type="text" class="form-control" name="last_name" value="{{ old('last_name', $user->last_name) }}">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">ایمیل</label>
-                <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" required>
+                <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" >
             </div>
 
             <div class="mb-3">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">رمز عبور (اختیاری)</label>
+                <label class="form-label">رمز عبور </label>
                 <input type="password" class="form-control" name="password">
             </div>
 
