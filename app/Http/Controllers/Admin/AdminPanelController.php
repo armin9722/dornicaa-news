@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Admin\Auth\AdminEditUserRequest;
 
 class AdminPanelController extends Controller
 {
@@ -33,10 +34,18 @@ class AdminPanelController extends Controller
         return view('admin.panel', compact('title', 'users'));
     }
 
+        /**
+     * Show the edit user form.
+     */
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.edit', compact('user'));
+    }
     /**
      * Update user profile.
      */
-    public function update(Request $request, User $user)
+    public function update(AdminEditUserRequest $request, User $user)
     {
         $request->validate([
             'first_name' => 'required|string|max:255',
@@ -81,10 +90,6 @@ class AdminPanelController extends Controller
         $message = $user->is_admin ? 'کاربر به مدیر تبدیل شد.' : 'کاربر از مدیران حذف شد.';
         return redirect()->route('admin.panel')->with('success', $message);
     }
-    public function edit($user)
-    {
-        $user = User::findOrFail($user);
-        return view('admin.edit', compact('user'));
-    }
+
 
 }
