@@ -81,4 +81,10 @@ class AdminPanelController extends Controller
         $message = $user->is_admin ? 'کاربر به مدیر تبدیل شد.' : 'کاربر از مدیران حذف شد.';
         return redirect()->route('admin.panel')->with('success', $message);
     }
+    public function edit($user)
+    {
+        $user = User::findOrFail($user);
+        return view('admin.edit', compact('user'));
+    }
+
 }
